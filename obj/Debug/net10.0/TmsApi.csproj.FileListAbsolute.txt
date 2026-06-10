@@ -26,3 +26,4 @@ C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\ref
 C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.pdb
 C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.genruntimeconfig.cache
 C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\ref\TmsApi.dll
+C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.sourcelink.json
