@@ -1,11 +1,19 @@
 using Microsoft.AspNetCore.Authentication;
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseDefaultServiceProvider(options =>
+{
+    options.ValidateScopes = true;
+    options.ValidateOnBuild = true;
+});
+
+builder.Services.AddSingleton<EnrollmentWorker>();
+builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+
 builder.Services.AddOptions<PaymentOptions>()
     .BindConfiguration("Payments")
     .ValidateDataAnnotations()
     .ValidateOnStart();
-builder.Services.AddSingleton<EnrollmentWorker>();
-builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
+
 
 // Services: add authentication / authorization services
 builder.Services.AddAuthentication("Training")
@@ -36,5 +44,11 @@ app.MapGet("/api/assessments/results", () =>
     });
 })
 .RequireAuthorization();
+app.MapGet("/api/enrollments/worker-smoke",
+    (EnrollmentWorker worker) =>
+{
+    worker.ProcessBatch();
+    return Results.Ok("processed");
+});
 
 app.Run();
