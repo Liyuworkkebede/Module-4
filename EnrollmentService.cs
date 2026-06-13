@@ -1,4 +1,5 @@
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 public interface IEnrollmentService
 {
@@ -10,7 +11,9 @@ public interface IEnrollmentService
 
 public class EnrollmentService : IEnrollmentService
 {
-    private readonly Dictionary<string, EnrollmentRecord> _store = new();
+    // The 'static' keyword is essential here to keep the data 
+    // alive across different HTTP requests.
+    private static readonly Dictionary<string, EnrollmentRecord> _store = new();
     private readonly ILogger<EnrollmentService> _logger;
 
     public EnrollmentService(ILogger<EnrollmentService> logger)
@@ -79,3 +82,8 @@ public record EnrollmentRecord(
     string StudentId,
     string CourseCode,
     DateTime EnrolledAt);
+    
+    public class TmsDatabaseException : Exception
+{
+    public TmsDatabaseException(string message) : base(message) { }
+}

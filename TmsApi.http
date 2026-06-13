@@ -1,5 +1,53 @@
-@TmsApi_HostAddress = http://localhost:5003
+### ========== EXERCISE 5: Enrollment API Tests ==========
 
-GET {{TmsApi_HostAddress}}/api/assessments/results
-Accept: application/json
-X-Training-User: John
+### 1. GET all enrollments (should return empty array [])
+GET http://localhost:5003/api/enrollments
+
+### 2. POST create a new enrollment (should return 201 with Location header)
+POST http://localhost:5003/api/enrollments
+Content-Type: application/json
+
+{
+  "studentId": "S-001",
+  "courseCode": "CS-101"
+}
+
+### 3. GET specific enrollment (replace {id} with actual ID from POST response)
+GET http://localhost:5003/api/enrollments/{id}
+
+### 4. DELETE enrollment (replace {id} with actual ID)
+DELETE http://localhost:5003/api/enrollments/{id}
+
+### 5. DELETE same ID again (should return 404)
+DELETE http://localhost:5003/api/enrollments/nonexistent-id
+
+### 6. Duplicate enrollment (should log Warning)
+POST http://localhost:5003/api/enrollments
+Content-Type: application/json
+
+{
+  "studentId": "S-001",
+  "courseCode": "CS-101"
+}
+
+### ========== EXERCISE 6: ProblemDetails Tests ==========
+
+### 7. Error endpoint (should return ProblemDetails JSON)
+GET http://localhost:5003/api/error
+
+### 8. Non-existent enrollment (should return 404 ProblemDetails)
+GET http://localhost:5003/api/enrollments/nonexistent-id
+
+### ========== SESSION 1: Protected Endpoint Tests ==========
+
+### 9. Anonymous access (should return 401)
+GET http://localhost:5003/api/assessments/results
+
+### 10. Authenticated access (should return 200)
+GET http://localhost:5003/api/assessments/results
+X-Training-User: test-student
+
+### ========== EXERCISE 2: Worker Test ==========
+
+### 11. Worker smoke test
+GET http://localhost:5003/api/enrollments/worker-smoke
