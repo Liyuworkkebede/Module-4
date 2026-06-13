@@ -27,3 +27,9 @@ C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\Tms
 C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.genruntimeconfig.cache
 C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\ref\TmsApi.dll
 C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.sourcelink.json
+C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.csproj.AssemblyReference.cache
+C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\bin\Debug\net10.0\Scalar.AspNetCore.dll
+C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.csproj.Up2Date
