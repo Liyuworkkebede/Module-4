@@ -142,4 +142,152 @@ public class TestController : ControllerBase
 
         return Ok(results);
     }
+
+    // ========== POST: CREATE STUDENT ==========
+    // POST: /api/test/student - Create a new student
+    [HttpPost("student")]
+    public async Task<IActionResult> CreateStudent([FromBody] CreateStudentRequest request)
+    {
+        try
+        {
+            // Validate required fields
+            if (string.IsNullOrEmpty(request.RegistrationNumber))
+            {
+                return BadRequest(new { Message = "RegistrationNumber is required" });
+            }
+
+            if (string.IsNullOrEmpty(request.Name))
+            {
+                return BadRequest(new { Message = "Name is required" });
+            }
+
+            // Check for duplicate registration number
+            var existingStudent = await _context.Students
+                .FirstOrDefaultAsync(s => s.RegistrationNumber == request.RegistrationNumber);
+
+            if (existingStudent != null)
+            {
+                return BadRequest(new
+                {
+                    Message = $"Student with RegistrationNumber '{request.RegistrationNumber}' already exists"
+                });
+            }
+
+            // Create new student
+            var student = new Student
+            {
+                RegistrationNumber = request.RegistrationNumber,
+                Name = request.Name,
+                GPA = request.GPA,
+                IsActive = request.IsActive ?? true
+            };
+
+            await _context.Students.AddAsync(student);
+            await _context.SaveChangesAsync();
+
+            _logger.LogInformation("Created student: {Name} ({RegistrationNumber}) with ID {Id}",
+                student.Name, student.RegistrationNumber, student.Id);
+
+            // Return 201 Created with Location header
+            return Created($"/api/test/student/{student.Id}", student);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error creating student");
+            return StatusCode(500, new { Message = "An error occurred while creating the student", Error = ex.Message });
+        }
+    }
+
+    // ========== TEST EAGER LOADING ==========
+    // GET: /api/test/eager-loading
+    [HttpGet("eager-loading")]
+    public async Task<IActionResult> TestEagerLoading()
+    {
+        try
+        {
+            // Test 1: Student with Enrollments and Courses
+            var studentWithEnrollments = await _context.Students
+                .Include(s => s.Enrollments)
+                .ThenInclude(e => e.Course)
+                .FirstOrDefaultAsync(s => s.Id == 1);
+
+            // Test 2: Course with Assessments
+            var courseWithAssessments = await _context.Courses
+                .Include(c => c.Assessments)
+                .FirstOrDefaultAsync(c => c.Id == 1);
+
+            // Test 3: All students with their enrollments
+            var allStudentsWithEnrollments = await _context.Students
+                .Include(s => s.Enrollments)
+                .ThenInclude(e => e.Course)
+                .ToListAsync();
+
+            return Ok(new
+            {
+                SingleStudent = new
+                {
+                    studentWithEnrollments?.Id,
+                    studentWithEnrollments?.Name,
+                    studentWithEnrollments?.GPA,
+                    studentWithEnrollments?.IsActive,
+                    studentWithEnrollments?.RegistrationNumber,
+                    Enrollments = studentWithEnrollments?.Enrollments?.Select(e => new
+                    {
+                        e.Id,
+                        e.Grade,
+                        e.EnrolledAt,
+                        Course = new
+                        {
+                            e.Course?.Id,
+                            e.Course?.Code,
+                            e.Course?.Title,
+                            e.Course?.Capacity
+                        }
+                    })
+                },
+                SingleCourse = new
+                {
+                    courseWithAssessments?.Id,
+                    courseWithAssessments?.Code,
+                    courseWithAssessments?.Title,
+                    courseWithAssessments?.Capacity,
+                    Assessments = courseWithAssessments?.Assessments?.Select(a => new
+                    {
+                        a.Id,
+                        a.Title,
+                        a.MaxScore,
+                        a.Weight
+                    })
+                },
+                AllStudentsWithEnrollments = allStudentsWithEnrollments.Select(s => new
+                {
+                    s.Id,
+                    s.Name,
+                    s.GPA,
+                    EnrollmentCount = s.Enrollments?.Count ?? 0,
+                    Courses = s.Enrollments?.Select(e => new
+                    {
+                        e.Course?.Code,
+                        e.Course?.Title,
+                        e.Grade
+                    })
+                }),
+                TotalStudents = allStudentsWithEnrollments.Count
+            });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error testing eager loading");
+            return StatusCode(500, new { Message = "Error testing eager loading", Error = ex.Message });
+        }
+    }
+}
+
+// ========== REQUEST DTO ==========
+public class CreateStudentRequest
+{
+    public required string RegistrationNumber { get; set; }
+    public required string Name { get; set; }
+    public decimal GPA { get; set; }
+    public bool? IsActive { get; set; }
 }

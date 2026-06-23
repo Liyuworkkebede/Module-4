@@ -59,7 +59,7 @@ app.MapControllers();
 // Map a test route '/api/error' (Exercise 6)
 app.MapGet("/api/error", () =>
 {
-    throw new Exception("ይህ ሆን ተብሎ የተፈጠረ ስህተት ነው!");
+   throw new Exception("This is an intentionally created error!");
 });
 
 app.MapGet("/api/assessments/results", () =>
