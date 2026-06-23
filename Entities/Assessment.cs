@@ -1,0 +1,13 @@
+namespace TmsApi.Entities;
+
+public class Assessment
+{
+    public int Id { get; set; }
+    public required string Title { get; set; }
+    public decimal MaxScore { get; set; }
+    public decimal Weight { get; set; }  // e.g., 0.30m for 30%
+    
+    // Foreign key + navigation to course
+    public int CourseId { get; set; }
+    public Course Course { get; set; } = null!;
+}
