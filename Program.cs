@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using TmsApi.Data;
 using TmsApi.Entities;
+using TmsApi.Services; 
+using TmsApi.Dtos;     
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,33 +15,40 @@ builder.Host.UseDefaultServiceProvider(options =>
 });
 
 // ========== DATABASE CONFIGURATION ==========
-// Register TmsDbContext with PostgreSQL
 builder.Services.AddDbContext<TmsDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("TmsDatabase"))
         .LogTo(Console.WriteLine, LogLevel.Information)
         .EnableSensitiveDataLogging());
 
-// ProblemDetails service (Exercise 6)
+// ========== PROBLEM DETAILS ==========
 builder.Services.AddProblemDetails();
 
-// CORRECT: EnrollmentService must be SCOPED, not Singleton
+// ========== SERVICE REGISTRATIONS ==========
 builder.Services.AddSingleton<EnrollmentWorker>();
 builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 
+// ✅ ADD COURSE SERVICE
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<TmsApi.Services.IEnrollmentService, TmsApi.Services.EnrollmentService>();
+
+// ========== OPTIONS ==========
 builder.Services.AddOptions<PaymentOptions>()
     .BindConfiguration("Payments")
     .ValidateDataAnnotations()
     .ValidateOnStart();
 
+// ========== CONTROLLERS ==========
 builder.Services.AddControllers();
 
-// Add OpenApi services
+// ========== OPENAPI ==========
 builder.Services.AddOpenApi();
 
+// ========== AUTHENTICATION ==========
 builder.Services.AddAuthentication("Training")
     .AddScheme<AuthenticationSchemeOptions, TrainingAuthHandler>("Training", null);
 
 builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 
@@ -111,11 +120,11 @@ using (var scope = app.Services.CreateScope())
 
         // Create courses
         var courses = new List<Course>
-        {
-            new() { Code = "CS-101", Title = "Introduction to Computer Science", Capacity = 30 },
-            new() { Code = "CS-201", Title = "Data Structures and Algorithms", Capacity = 25 },
-            new() { Code = "MAT-101", Title = "Calculus I", Capacity = 40 }
-        };
+{
+    new() { Code = "CS-101", Title = "Introduction to Computer Science", MaxCapacity = 30 },
+    new() { Code = "CS-201", Title = "Data Structures and Algorithms", MaxCapacity = 25 },
+    new() { Code = "MAT-101", Title = "Calculus I", MaxCapacity = 40 }
+};
         await context.Courses.AddRangeAsync(courses);
         await context.SaveChangesAsync();
 
