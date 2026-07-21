@@ -26,13 +26,24 @@ public class StudentConfiguration : IEntityTypeConfiguration<Student>
         builder.Property(s => s.IsActive)
             .HasDefaultValue(true);
 
+        builder.Property(s => s.IsDeleted)
+            .HasDefaultValue(false);
+
+        // ✅ Concurrency token
+        builder.Property(s => s.Version)
+            .IsRowVersion();  // Maps to PostgreSQL xmin
+
+        // ✅ Shadow property for audit
+        builder.Property<DateTime>("LastUpdated")
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        // ✅ Soft delete filter
+        builder.HasQueryFilter(s => !s.IsDeleted);
+
         builder.HasIndex(s => s.RegistrationNumber)
             .IsUnique();
 
         builder.HasIndex(s => s.Name);
-
-        // ✅ REMOVE relationship configuration from here
-        // We'll configure it in EnrollmentConfiguration
 
         builder.ToTable("Students");
     }

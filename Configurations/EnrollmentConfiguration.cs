@@ -25,13 +25,15 @@ public class EnrollmentConfiguration : IEntityTypeConfiguration<Enrollment>
             .IsRequired()
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
+        builder.Property(e => e.IsArchived)
+            .HasDefaultValue(false);  // ✅ New property
+
         builder.HasIndex(e => new { e.StudentId, e.CourseId })
             .IsUnique();
 
         builder.HasIndex(e => e.StudentId);
         builder.HasIndex(e => e.CourseId);
 
-        // ✅ CONFIGURE relationships HERE only
         builder.HasOne(e => e.Student)
             .WithMany(s => s.Enrollments)
             .HasForeignKey(e => e.StudentId)
