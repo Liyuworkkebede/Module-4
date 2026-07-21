@@ -241,7 +241,7 @@ public class TestController : ControllerBase
                             e.Course?.Id,
                             e.Course?.Code,
                             e.Course?.Title,
-                            e.Course?.Capacity
+                            e.Course?.MaxCapacity
                         }
                     })
                 },
@@ -250,7 +250,7 @@ public class TestController : ControllerBase
                     courseWithAssessments?.Id,
                     courseWithAssessments?.Code,
                     courseWithAssessments?.Title,
-                    courseWithAssessments?.Capacity,
+                    courseWithAssessments?.MaxCapacity,
                     Assessments = courseWithAssessments?.Assessments?.Select(a => new
                     {
                         a.Id,

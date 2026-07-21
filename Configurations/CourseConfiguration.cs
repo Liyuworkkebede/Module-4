@@ -13,23 +13,23 @@ public class CourseConfiguration : IEntityTypeConfiguration<Course>
 
         builder.Property(c => c.Code)
             .IsRequired()
-            .HasMaxLength(20);
+            .HasMaxLength(10);
 
         builder.Property(c => c.Title)
             .IsRequired()
             .HasMaxLength(200);
 
-        builder.Property(c => c.Capacity)
+        builder.Property(c => c.MaxCapacity)
             .IsRequired()
             .HasDefaultValue(30);
 
         builder.HasIndex(c => c.Code)
             .IsUnique();
 
-        builder.HasIndex(c => c.Title);
-
-        // ✅ REMOVE relationship configuration from here
-        // We'll configure it in EnrollmentConfiguration
+        builder.HasMany(c => c.Enrollments)
+            .WithOne(e => e.Course)
+            .HasForeignKey(e => e.CourseId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.ToTable("Courses");
     }
