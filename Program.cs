@@ -5,6 +5,7 @@ using TmsApi.Data;
 using TmsApi.Entities;
 using TmsApi.Services; 
 using TmsApi.Dtos;     
+using TmsApi.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,7 +39,10 @@ builder.Services.AddOptions<PaymentOptions>()
     .ValidateOnStart();
 
 // ========== CONTROLLERS ==========
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<AuditLogFilter>();
+});
 
 // ========== OPENAPI ==========
 builder.Services.AddOpenApi();
@@ -142,9 +146,14 @@ using (var scope = app.Services.CreateScope())
         };
         await context.Enrollments.AddRangeAsync(enrollments);
         await context.SaveChangesAsync();
-        
-        Console.WriteLine("✅ Database seeded with test data!");
     }
+}
+
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<TmsDbContext>();
+    await DataSeeder.SeedAsync(context);
 }
 
 app.Run();

@@ -22,7 +22,7 @@ public class EnrollmentsController : ControllerBase
     [HttpGet("{id:int}", Name = nameof(GetEnrollment))]
     public async Task<IActionResult> GetEnrollment(int courseId, int id, CancellationToken ct)
     {
-        // ✅ ትክክል - ct እንጂ ctx አይደለም
+        
         var enrollment = await _enrollmentService.GetByIdAsync(courseId, id, ct);
         return enrollment is not null ? Ok(enrollment) : NotFound();
     }
