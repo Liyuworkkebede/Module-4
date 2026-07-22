@@ -16,6 +16,13 @@ public class CoursesController : ControllerBase
         _courseService = courseService;
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetCourses([FromQuery] PagedRequest request, CancellationToken ct)
+    {
+        var result = await _courseService.GetCoursesAsync(request, ct);
+        return Ok(result);
+    }
+
     [HttpGet("{id:int}", Name = nameof(GetCourseById))]
     public async Task<IActionResult> GetCourseById(int id, CancellationToken ct)
     {
@@ -26,7 +33,7 @@ public class CoursesController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateCourse(CreateCourseRequest request, CancellationToken ct)
     {
-        // ✅ ይህ አሁን ይሰራል
+        
         if (await _courseService.CodeExistsAsync(request.Code, ct))
         {
             return Conflict(new ProblemDetails
