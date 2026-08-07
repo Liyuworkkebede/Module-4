@@ -26,9 +26,6 @@ builder.Services.AddProblemDetails();
 
 // ========== SERVICE REGISTRATIONS ==========
 builder.Services.AddSingleton<EnrollmentWorker>();
-builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
-
-// ✅ ADD COURSE SERVICE
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<TmsApi.Services.IEnrollmentService, TmsApi.Services.EnrollmentService>();
 

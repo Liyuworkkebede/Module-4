@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Windows 11 Pro\\Desktop\\qiyas\\qiyas\\backend\\TmsApi\\TmsApi.csproj": {}
+    "C:\\Users\\Liyu\\Desktop\\qiyas\\Back\\tms-api\\TmsApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Windows 11 Pro\\Desktop\\qiyas\\qiyas\\backend\\TmsApi\\TmsApi.csproj": {
+    "C:\\Users\\Liyu\\Desktop\\qiyas\\Back\\tms-api\\TmsApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Windows 11 Pro\\Desktop\\qiyas\\qiyas\\backend\\TmsApi\\TmsApi.csproj",
+        "projectUniqueName": "C:\\Users\\Liyu\\Desktop\\qiyas\\Back\\tms-api\\TmsApi.csproj",
         "projectName": "TmsApi",
-        "projectPath": "C:\\Users\\Windows 11 Pro\\Desktop\\qiyas\\qiyas\\backend\\TmsApi\\TmsApi.csproj",
-        "packagesPath": "C:\\Users\\Windows 11 Pro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Windows 11 Pro\\Desktop\\qiyas\\qiyas\\backend\\TmsApi\\obj\\",
+        "projectPath": "C:\\Users\\Liyu\\Desktop\\qiyas\\Back\\tms-api\\TmsApi.csproj",
+        "packagesPath": "C:\\Users\\Liyu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Liyu\\Desktop\\qiyas\\Back\\tms-api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Windows 11 Pro\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Liyu\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
