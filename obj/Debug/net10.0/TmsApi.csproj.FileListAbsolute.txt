@@ -122,6 +122,15 @@ C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\ref
 C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.pdb
 C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\TmsApi.genruntimeconfig.cache
 C:\Users\Windows 11 Pro\Desktop\qiyas\qiyas\backend\TmsApi\obj\Debug\net10.0\ref\TmsApi.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.csproj.AssemblyReference.cache
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.AssemblyInfoInputs.cache
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.AssemblyInfo.cs
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.csproj.CoreCompileInputs.cache
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.sourcelink.json
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\appsettings.json
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\TmsApi.staticwebassets.endpoints.json
@@ -130,7 +139,15 @@ C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\TmsApi.deps.json
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\TmsApi.runtimeconfig.json
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\TmsApi.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\TmsApi.pdb
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Asp.Versioning.Abstractions.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Asp.Versioning.Http.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Asp.Versioning.Mvc.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Asp.Versioning.Mvc.ApiExplorer.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\FluentValidation.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Humanizer.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\MediatR.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\MediatR.Contracts.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.Build.Framework.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
@@ -144,6 +161,10 @@ C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.EntityFrame
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.OpenApi.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\Mono.TextTemplating.dll
@@ -222,15 +243,6 @@ C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\ru\Microsoft.CodeAnal
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.csproj.AssemblyReference.cache
-C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\rpswa.dswa.cache.json
-C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.AssemblyInfoInputs.cache
-C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.AssemblyInfo.cs
-C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.csproj.CoreCompileInputs.cache
-C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\TmsApi.sourcelink.json
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\Liyu\Desktop\qiyas\Back\tms-api\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json

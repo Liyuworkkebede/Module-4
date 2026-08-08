@@ -5,6 +5,7 @@ using TmsApi.Entities;
 
 namespace TmsApi.Services;
 
+
 public class CourseService : ICourseService
 {
     private readonly TmsDbContext _context;
@@ -118,5 +119,13 @@ public class CourseService : ICourseService
             Page = request.Page,
             PageSize = request.PageSize
         };
+    }
+
+    /// <summary>Returns the full Course entity with Enrollments loaded (for capacity checks in CQRS handlers).</summary>
+    public async Task<Course?> GetByCodeAsync(string code, CancellationToken ct)
+    {
+        return await _context.Courses
+            .Include(c => c.Enrollments)
+            .FirstOrDefaultAsync(c => c.Code == code, ct);
     }
 }
